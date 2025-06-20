@@ -1,0 +1,64 @@
+.create-product-form {
+    max-width: 430px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(65, 93, 67, 0.10);
+    padding: 34px 32px 30px 32px;
+}
+
+.create-product-form label {
+    margin-bottom: 6px;
+    font-size: 1rem;
+    color: #333;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.create-product-form input[type="text"],
+.create-product-form input[type="number"],
+.create-product-form textarea,
+.create-product-form select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    font-size: 1rem;
+    background: #f9f9f9;
+}
+
+.create-product-form textarea {
+    min-height: 60px;
+}
+
+.create-product-form button[type="button"] {
+    margin-top: 14px;
+    padding: 12px 12px;
+    background: #197b30;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+    letter-spacing: 0.5px;
+}
+
+.create-product-form button[type="button"]:hover {
+    background: #1f9240;
+}
+
+.status-msg {
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.status-msg.success {
+    color: #197b30;
+}
+
+.status-msg.error {
+    color: #d42c2c;
+}

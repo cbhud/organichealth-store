@@ -1,0 +1,39 @@
+.cart-popup-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.cart-popup-modal {
+    background: #fff;
+    padding: 32px 36px 24px 36px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+    text-align: center;
+    min-width: 250px;
+}
+.cart-popup-modal img {
+    margin-bottom: 12px;
+}
+.cart-popup-actions {
+    margin-top: 18px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+.cart-popup-modal .btn {
+    background: #338b4b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
+}
+.cart-popup-modal .btn:hover {
+    background: #266a37;
+}

@@ -1,0 +1,138 @@
+.order-detail-box {
+    background: #fff;
+    border-radius: 10px;
+    padding: 26px;
+    max-width: 550px;
+    margin: 32px auto;
+}
+
+.order-detail-box h2 {
+    margin-bottom: 16px;
+}
+
+.order-status {
+    font-weight: bold;
+    color: #197b30;
+}
+
+.order-status-cancel {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.order-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 18px 0;
+}
+
+.order-items-table th,
+.order-items-table td {
+    padding: 8px 4px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle; /* align all cell content vertically center */
+}
+
+.order-items-table th {
+    background: #f3f3f3;
+}
+
+.order-msg {
+    color: #197b30;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.order-form label {
+    display: block;
+    margin: 14px 0 3px 0;
+}
+
+.order-form input,
+.order-form select {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+}
+
+.order-form button {
+    background: #197b30;
+    color: #fff;
+    padding: 10px 0;
+    border: none;
+    border-radius: 7px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 18px;
+    transition: background 0.2s;
+    min-width: 140px;
+}
+
+.order-form button:hover {
+    background: #1f9240;
+}
+
+/* Button row for side-by-side buttons */
+.button-row {
+    display: flex;
+    gap: 12px;
+}
+
+.button-row button {
+    flex: 1;
+}
+
+.cancel-btn {
+    background: #e74c3c !important;
+    color: #fff !important;
+    border: none;
+    border-radius: 7px;
+    font-weight: 600;
+    padding: 10px 0;
+    margin-top: 18px;
+    cursor: pointer;
+    transition: background 0.2s;
+    min-width: 140px;
+    margin-left: 10px;
+}
+
+.cancel-btn:hover {
+    background: #c0392b !important;
+}
+
+.item-actions {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.delete-btn {
+    background: #e74c3c !important;
+    color: #fff !important;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    margin: 0 auto;
+    height: 36px;
+    min-width: 36px;
+    line-height: 1;
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+.delete-btn i {
+    color: #fff;
+    font-size: 1.1em;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.delete-btn:hover {
+    background: #c0392b !important;
+}

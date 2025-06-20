@@ -1,0 +1,117 @@
+.checkout-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
+    align-items: flex-start;
+    justify-content: center;
+}
+.checkout-summary {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(65,93,67,0.10);
+    padding: 30px 28px;
+    min-width: 320px;
+    max-width: 360px;
+    width: 100%;
+    margin-bottom: 28px;
+}
+.checkout-summary h2 {
+    color: var(--primary);
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+}
+.checkout-list {
+    margin-bottom: 22px;
+}
+.checkout-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.02rem;
+    border-bottom: 1px solid var(--secondary);
+    padding: 9px 0;
+}
+.checkout-list-item:last-child {
+    border-bottom: none;
+}
+.checkout-total-row {
+    font-weight: bold;
+    color: var(--primary);
+    font-size: 1.13rem;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 19px;
+}
+.checkout-form {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(65,93,67,0.10);
+    padding: 32px 26px;
+    min-width: 320px;
+    max-width: 420px;
+    width: 100%;
+}
+.checkout-form h2 {
+    color: var(--primary);
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.checkout-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 1rem;
+}
+.checkout-form input,
+.checkout-form select,
+.checkout-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--secondary);
+    border-radius: 6px;
+    margin-bottom: 18px;
+    font-size: 1rem;
+    font-family: inherit;
+    background: var(--light-bg);
+    color: var(--text-dark);
+    transition: border 0.2s;
+}
+.checkout-form input:focus,
+.checkout-form select:focus,
+.checkout-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+.checkout-form .checkout-btn {
+    width: 100%;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 0;
+    font-size: 1.08rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 12px;
+    transition: background 0.2s, color 0.2s;
+}
+.checkout-form .checkout-btn:hover {
+    background: var(--accent);
+    color: var(--white);
+}
+@media (max-width: 900px) {
+    .checkout-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .checkout-summary,
+    .checkout-form {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,211 @@
+.product-view {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+    margin-top: 46px;
+    margin-bottom: 64px;
+    flex-wrap: wrap;
+}
+.product-view-img {
+    flex: 1 1 320px;
+    min-width: 260px;
+    max-width: 430px;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(65,93,67,0.09);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 12px;
+}
+.product-view-img img {
+    width: 100%;
+    max-width: 320px;
+    max-height: 360px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+.product-view-details {
+    flex: 2 1 430px;
+    min-width: 280px;
+    max-width: 600px;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(65,93,67,0.09);
+    padding: 36px 32px 28px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.product-view-details h1 {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+.product-view-description {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.65;
+    margin-bottom: 10px;
+}
+.product-view-price-row {
+    margin-bottom: 12px;
+}
+.product-view-price {
+    font-size: 1.4rem;
+    color: var(--primary);
+    font-weight: 700;
+    background: var(--secondary);
+    padding: 6px 22px;
+    border-radius: 24px;
+}
+.product-view-buy-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+.product-view-quantity-label {
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 1.08rem;
+    margin-bottom: 6px;
+}
+.product-view-quantity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2px;
+}
+.product-view-quantity input[type="number"] {
+    width: 50px;
+    font-size: 1.13rem;
+    text-align: center;
+    border: 1px solid var(--secondary);
+    border-radius: 6px;
+    padding: 7px;
+    background: var(--secondary);
+    color: var(--text-dark);
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+.quantity-btn {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.quantity-btn:hover {
+    background: var(--accent);
+}
+.product-view-actions {
+    display: flex;
+    gap: 22px;
+    margin-top: 14px;
+}
+.buy-now-btn, .add-to-cart-btn {
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 13px 32px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(65,93,67,0.06);
+    transition: background 0.2s, transform 0.2s;
+    outline: none;
+}
+.buy-now-btn:hover {
+    background: var(--primary);
+    color: var(--white);
+    transform: scale(1.04);
+}
+.add-to-cart-btn {
+    background: var(--primary);
+}
+.add-to-cart-btn:hover {
+    background: var(--accent);
+    color: var(--white);
+    transform: scale(1.04);
+}
+
+.add-to-cart i {
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+@media (max-width: 950px) {
+    .product-view {
+        flex-direction: column;
+        gap: 32px;
+        align-items: stretch;
+    }
+    .product-view-img,
+    .product-view-details {
+        max-width: 100%;
+    }
+}
+@media (max-width: 600px) {
+    .product-view {
+        margin-top: 18px;
+        margin-bottom: 30px;
+    }
+    .product-view-details {
+        padding: 18px 6vw 18px 6vw;
+    }
+    .product-view-img {
+        padding: 18px 2vw;
+    }
+    .product-view-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.edit-btn {
+    background: linear-gradient(90deg, #ffb347 0%, #ffcc33 100%);
+    color: #7a4300;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 13px 32px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255, 193, 7, 0.10);
+    transition: background 0.2s, transform 0.2s;
+    outline: none;
+}
+.edit-btn:hover {
+    background: linear-gradient(90deg, #ff9800 0%, #ffe066 100%);
+    color: #a35400;
+    transform: scale(1.04);
+}
+
+.delete-btn {
+    background: linear-gradient(90deg, #ff4b2b 0%, #ff416c 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 13px 32px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(255, 65, 108, 0.10);
+    transition: background 0.2s, transform 0.2s;
+    outline: none;
+}
+.delete-btn:hover {
+    background: linear-gradient(90deg, #ff1a1a 0%, #ff4b2b 100%);
+    color: #fff;
+    transform: scale(1.04);
+}
