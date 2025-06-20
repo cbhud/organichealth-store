@@ -19,6 +19,7 @@ $result = $konekcija->query($sql);
     <meta charset="UTF-8">
     <title>Moje Narudžbine | Organic Health CG</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel = "stylesheet" href = "css/account.css">
     <link rel="stylesheet" href="css/orders.css">
     <link rel="icon" type="image/jpg" href="/web-shop/slike/logo.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">

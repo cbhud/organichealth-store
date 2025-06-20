@@ -87,6 +87,11 @@ function saveOrder() {
         let city = document.getElementById('city').value.trim();
         let note = document.getElementById('note').value.trim();
         let adminStatusInput = document.getElementById("order-status-admin");
+        if (adminStatusInput == null) {
+            let adminStatusInput = '';
+        }else {
+            adminStatusInput = document.getElementById("order-status-admin").value;
+        }
 
         $.ajax({
             type: "POST",
@@ -97,7 +102,7 @@ function saveOrder() {
                 address: address,
                 city: city,
                 note: note,
-                status: adminStatusInput.value
+                status: adminStatusInput
             },
             success: function(response) {
                 if (response === "OK") {

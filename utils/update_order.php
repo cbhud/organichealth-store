@@ -40,7 +40,7 @@ function updateOrder($user_id) {
     $order_id = $_POST['order_id'];
 
     //provjera da li pripada korisniku narudzba ili je admin
-    $sql = "SELECT user_id, status FROM Orders WHERE order_id = ?";
+    $sql = "SELECT user_id, status FROM Orders WHERE order_id = '$order_id'";
     $result = $konekcija->query($sql);
     if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
@@ -73,7 +73,7 @@ function updateOrder($user_id) {
         exit;
     }
 
-    if ($_SESSION['role'] === 'admin' && isset($_POST['status'])) {
+    if ($_SESSION['role'] === 'admin' && isset($_POST['status']) && !empty($_POST['status'])) {
         $allow_statuses = ['u obradi', 'poslato', 'otkazano'];
         $status = trim($_POST['status']);
         if (!in_array($status, $allow_statuses)) {
@@ -118,7 +118,7 @@ function removeOrderItem($user_id) {
     $order_item_id = $_POST['order_item_id'];
 
     //provjera da li pripada korisniku narudzba ili je admin
-    $sql = "SELECT user_id, status FROM Orders WHERE order_id = ?";
+    $sql = "SELECT user_id, status FROM Orders WHERE order_id = '$order_id'";
     $result = $konekcija->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
@@ -172,7 +172,7 @@ function cancelOrder($konekcija, $user_id) {
     $order_id = intval($_POST['order_id']);
 
     //provjera da li pripada korisniku narudzba ili je admin
-    $sql = "SELECT user_id, status FROM Orders WHERE order_id = ?";
+    $sql = "SELECT user_id, status FROM Orders WHERE order_id = '$order_id'";
     $result = $konekcija->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
