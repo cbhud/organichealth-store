@@ -164,7 +164,8 @@ function removeOrderItem($user_id) {
     exit;
 }
 
-function cancelOrder($konekcija, $user_id) {
+function cancelOrder($user_id) {
+    global $konekcija;
     if (empty($_POST['order_id']) || !is_numeric($_POST['order_id'])) {
         echo "X";
         exit;

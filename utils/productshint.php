@@ -8,6 +8,7 @@ exit;
 $hint = trim($_GET["hint"]);
 
 if ($hint !== "") {
+    //ako nije prazan string pretrazujemo po bazi
     $sql = "
         SELECT product_id, name, price, img_url
         FROM Product
@@ -19,6 +20,7 @@ if ($hint !== "") {
 
     if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
+            //prikazujemo kao elemente rezultate pretrage
             echo '<div class="suggestion-item" data-id="' . $row["product_id"] . '">';
             echo '<img src="' . $row["img_url"] . '" alt="' . $row["name"] . '">';
             echo '<div class="suggestion-details">';

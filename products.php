@@ -46,7 +46,6 @@ $result2 = $konekcija->query($sql2);
                 });
             }
 
-            // Ova funkcija se poziva kada se stranica ucita
             function initAll() {
                 // Kada korisnik pise u polje za pretragu
                 let searchInput = document.getElementById("search");

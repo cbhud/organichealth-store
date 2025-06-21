@@ -19,14 +19,14 @@ if (isset($_POST['product_id'])) {
     //provjera da li je broj
     $product_id = (int)$_POST['product_id'];
 
-    //ukoliko se u cart povecao quantity
+    //ukoliko je setovao i quantity povecaj kolicinu za taj broj
     if (isset($_POST['quantity'])) {
         $quantity = (int)$_POST['quantity'];
         if ($quantity < 1) {
             $quantity = 1;
         }
 
-    //ako je dodato sa index stranice tj ako nema quantity default ce biti 1
+    //ako nema quantity default ce biti 1
     } else {
         $quantity = 1;
     }

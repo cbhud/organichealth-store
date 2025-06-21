@@ -1,8 +1,17 @@
 <?php
 require 'connection.php';
 
-$category = $_GET['category'] ?? 'all';
-$sort = $_GET['sort'] ?? 'default';
+if (isset($_GET['category'])) {
+    $category = $_GET['category'];
+} else {
+    $category = 'all';
+}
+
+if (isset($_GET['sort'])) {
+    $sort = $_GET['sort'];
+} else {
+    $sort = 'default';
+}
 
 $sql = "SELECT * FROM product";
 
@@ -27,6 +36,7 @@ $stmt = $konekcija->prepare($sql);
 if ($category != 'all') {
     $stmt->bind_param("i", $category);
 }
+
 $stmt->execute();
 $result = $stmt->get_result();
 
