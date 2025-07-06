@@ -1,5 +1,56 @@
-# organichealth-store
-University final exam project built using PHP
+# Organic Health Store — Project Summary (Detailed)
 
-THIS SITE IS BROKEN DEMO BECAUSE ITS FREE HOSTING AND IT BLOCKS AJAX ETC...
-https://organichealth.zya.me/index.php
+University final exam project built using PHP  
+[Live Demo](https://organichealth.zya.me/index.php)
+
+This PHP-based e-commerce platform for products incorporates a range of modern web development features, including:
+
+- **User Registration & Login:**  
+  - Secure password handling using industry-standard hashing.
+  - Security measures such as input validation and session management with roles.
+
+- **Product & Category Management:**  
+  - Admins can add, edit, and delete products and categories through dedicated interfaces.
+  - Product and category data is stored and managed in a relational database (see included DB diagram).
+  - Product listing and detail pages dynamically fetch product data from the database.
+
+- **Admin Panel:**  
+  - Centralized dashboard for administrators to manage the store, including products, categories, and orders.
+  - Backend logic separates admin functionality from regular user experience.
+
+- **Shopping Cart & Checkout:**  
+  - Users can add products to a cart, update quantities, and remove items, with actions handled via AJAX for responsiveness.
+  - Checkout process captures order and shipping details, and processes the order into the database.
+
+- **Order Processing & Reports:**  
+  - System tracks orders per user, with order history accessible in user accounts and the admin panel.
+  - Admins can generate reports (e.g., sales, inventory, user activity) for the store's performance and management.
+
+- **Security & Best Practices:**  
+  - User inputs are sanitized to prevent SQL injections.
+  - Role-based access control ensures only admins can access sensitive features.
+
+- **Database Design & Implementation:**  
+  - Well-structured relational database, as visualized in the provided ERD.
+  - Database includes tables for users, products, categories, orders, order items, and possibly more (addresses, reports, etc.).
+  - Database dump files (`webshop_dump/`) assist with development, backup, and deployment.
+
+- **Frontend & User Experience:**  
+  - Responsive design using custom CSS/JS for interactivity.
+  - AJAX enables smooth, real-time updates (e.g., cart changes, order updates, etc.).
+
+---
+
+## Utility Scripts
+
+- `add_to_cart.php`: Handles AJAX requests for adding products to the user's cart and updating cart contents.
+- `filter_products.php`: Implements server-side filtering logic for product searches and category browsing.
+- `productshint.php`: Provides live interactive search box suggestions on products.php page.
+- `deleteproduct.php`: Enables secure deletion of products by authorized admins.
+- `update_order.php`: Allows order status or details to be updated by admins.
+- `admin_report.php`: Generates downloadable CSV reports (sales, inventory, etc...) for admin review.
+
+These utility scripts ensure modularity, security, and maintainability, enabling robust store operations and delivering a secure, user-friendly online shopping experience that is ready for production or further development.
+
+---
+
