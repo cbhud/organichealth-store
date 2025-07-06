@@ -1,7 +1,7 @@
-# Organic Health Store — Project Summary (Detailed)
+[Live Demo](https://organichealth.zya.me/index.php)
+# Organic Health Store
 
 University final exam project built using PHP  
-[Live Demo](https://organichealth.zya.me/index.php)
 
 This PHP-based e-commerce platform for products incorporates a range of modern web development features, including:
 
@@ -41,16 +41,21 @@ This PHP-based e-commerce platform for products incorporates a range of modern w
 
 ---
 
-## Utility Scripts
-
-- `add_to_cart.php`: Handles AJAX requests for adding products to the user's cart and updating cart contents.
-- `filter_products.php`: Implements server-side filtering logic for product searches and category browsing.
-- `productshint.php`: Provides live interactive search box suggestions on products.php page.
-- `deleteproduct.php`: Enables secure deletion of products by authorized admins.
-- `update_order.php`: Allows order status or details to be updated by admins.
-- `admin_report.php`: Generates downloadable CSV reports (sales, inventory, etc...) for admin review.
-
-These utility scripts ensure modularity, security, and maintainability, enabling robust store operations and delivering a secure, user-friendly online shopping experience that is ready for production or further development.
+- **Utility Scripts:**  
+  - Handles AJAX requests for adding products to the user's cart and updating cart contents.
+  - Implements server-side filtering logic for product searches and category browsing.
+  - Provides live interactive search box suggestions on the products listing page.
+  - Enables secure deletion of products by authorized admins.
+  - Allows admins to update order status or details.
+  - Generates downloadable CSV reports (sales, inventory, etc.) for admin review.
+  - Centralizes secure database connections and session management.
 
 ---
+
+
+Organic Health Store demonstrates a comprehensive approach to building a modern, secure, and user-friendly e-commerce application with PHP. 
+By combining robust backend architecture, responsive frontend design, and carefully structured utility scripts, 
+the project delivers a complete online store experience suitable for real-world deployment or further development. 
+The modular codebase and best practices in security and maintainability ensure the platform is both scalable and adaptable for future needs.
+
 
