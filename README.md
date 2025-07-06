@@ -48,6 +48,7 @@ This PHP-based e-commerce platform for products incorporates a range of modern w
   - Generates downloadable CSV reports (sales, inventory, etc.) for admin review.
   - Centralizes secure database connections and session management.
 
+---
 
 
 Organic Health Store demonstrates a comprehensive approach to building a modern, secure, and user-friendly e-commerce application with PHP. 
