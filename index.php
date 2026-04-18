@@ -31,7 +31,7 @@ $result = $konekcija->query($sql);
         ?>
         function fetchData(productId){
             if(!flag){
-                alert('Morate biti ulogovani');
+                location.href = 'login.php';
                 return;
             }else {
             $.ajax({

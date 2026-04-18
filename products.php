@@ -32,7 +32,7 @@ $result2 = $konekcija->query($sql2);
             }?>
 
                 if(!flag){
-                    alert('Morate biti ulogovani');
+                    location.href = 'login.php';
                     return;
                 }
                 $.ajax({

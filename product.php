@@ -80,7 +80,7 @@ $product = $result->fetch_assoc();
                 echo 'flag = false;';
             }?>
             if(!flag){
-                alert('Morate biti ulogovani');
+                location.href = 'login.php';
                 return;
             }
             let quantity = document.getElementById('quantity').value;
@@ -106,7 +106,7 @@ $product = $result->fetch_assoc();
                 echo 'flag = false;';
             }?>
                     if(!flag){
-                        alert('Morate biti ulogovani');
+                        location.href = 'login.php';
                         return;
                     }
                 let quantity = document.getElementById('quantity').value;

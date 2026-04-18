@@ -20,8 +20,15 @@ if (isset($_POST['register'])) {
         $sql = $konekcija->prepare("INSERT INTO users (first_name, last_name, password, email, phone_number, role) VALUES (?,?,?,?,?,?)");
         $sql->bind_param("ssssss", $first_name, $last_name, $password, $email, $phone, $role);
         $sql->execute();
-        echo "<script>alert('USPJESNA REGISTRACIJA!');</script>";
-        echo "<script>location.href='login.php';</script>";
+
+        // Automatically log the user in
+        $_SESSION['id'] = $sql->insert_id;
+        $_SESSION['role'] = $role;
+        $_SESSION['email'] = $email;
+
+        // Redirect directly to homepage without alerts
+        echo "<script>location.href='index.php';</script>";
+        exit;
     }
 }
 

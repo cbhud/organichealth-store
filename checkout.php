@@ -61,7 +61,7 @@ $cities = array(
     <link rel="stylesheet" href="css/checkout.css">
     <link rel="icon" type="image/jpg" href="slike/logo.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="css/popup2.css">
+    <link rel="stylesheet" href="css/popup.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 </head>
 
@@ -113,14 +113,20 @@ $cities = array(
                 echo '<h2>Sazetak korpe</h2>';
                 echo '<div class="checkout-list">';
                 foreach ($cart as $product_id => $quantity) {
-                    $sql = "SELECT name, price FROM product WHERE product_id = $product_id LIMIT 1";
+                    $sql = "SELECT name, price, img_url FROM product WHERE product_id = $product_id LIMIT 1";
                     $result = $konekcija->query($sql);
                     if ($result && $result->num_rows > 0) {
                         $row = $result->fetch_assoc();
                         $item_total = $row['price'] * $quantity;
                         echo '<div class="checkout-list-item">';
-                        echo '<span>' . $row['name'] . ' ×' . $quantity . '</span>';
-                        echo '<span>' . $item_total . ' €</span>';
+                        echo '<div style="display:flex; align-items:center; gap:16px;">';
+                        echo '<img src="' . $row['img_url'] . '" alt="' . $row['name'] . '" style="width: 48px; height: 48px; object-fit: cover; border-radius: 6px; border: 1px solid var(--card-border); background: var(--mist);">';
+                        echo '<div style="display:flex; flex-direction:column; gap:2px; padding-right: 12px;">';
+                        echo '<span style="font-weight:500; font-size: 1.05rem;">' . $row['name'] . '</span>';
+                        echo '<span style="color:var(--slate); font-size:0.95rem;">Količina: ' . $quantity . '</span>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '<span style="font-weight:600;">' . number_format($item_total, 2) . ' €</span>';
                         echo '</div>';
                         $item_total = $row['price'] * $quantity;
                         $total += $item_total;
@@ -159,7 +165,8 @@ $cities = array(
                 echo '<span id="cityErr"></span>';
                 echo '<label for="note">Napomena</label>';
                 echo '<input type="text" id="note" name="note" onkeyup="validateNote();">';
-                echo '<span id="noteErr"></span>';
+                echo '<span id="noteErr" class="error-span"></span>';
+                echo '<div id="formStatus" class="status-msg" style="display:none; margin-top: 10px;"></div>';
                 echo '<button type="button" name="naruci" onclick="checkValidation()" class="checkout-btn">Potvrdi narudžbu</button>';
                 echo '</form>';
                 echo '</div>';
@@ -189,7 +196,7 @@ $cities = array(
             </div>
         </div>
     </footer>
-    <script src="js/popup2.js"></script>
+    <script src="js/popup.js"></script>
     <script>
         let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         let phoneRegex = /^\d{9}$/;
@@ -257,9 +264,13 @@ $cities = array(
             let validCity = validateCity();
             let validNote = validateNote();
             if (validName && validPhone && validAddress && validCity && validNote) {
+                document.getElementById("formStatus").style.display = "none";
                 fetchData();
             } else {
-                alert("nije dobar unos!")
+                let status = document.getElementById("formStatus");
+                status.textContent = "Molimo vas da ispravno popunite sva polja.";
+                status.className = "status-msg error";
+                status.style.display = "block";
             }
             return validName && validPhone && validAddress && validCity && validNote;
         }
@@ -280,7 +291,10 @@ $cities = array(
                     if (data === "OK") {
                         showCartPopup2();
                     } else {
-                        alert(data)
+                        let status = document.getElementById("formStatus");
+                        status.textContent = data;
+                        status.className = "status-msg error";
+                        status.style.display = "block";
                     }
                 }
             });
