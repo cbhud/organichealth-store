@@ -10,7 +10,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontakt | Organic Health CG</title>
     <link rel="stylesheet" href="../css/contact.css">
-    <link rel="icon" type="image/jpg" href="/web-shop/slike/logo.jpg">
+    <link rel="icon" type="image/jpg" href="../slike/logo.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
@@ -18,7 +18,7 @@ session_start();
     <div class="container header-content">
         <div class="logo">
             <a href="../index.php">
-                <img src="/web-shop/slike/logo.jpg" alt="">
+                <img src="../slike/logo.jpg" alt="">
             </a>
         </div>
         <nav class="main-nav">
@@ -40,7 +40,7 @@ session_start();
             }else if ($_SESSION["role"] == "admin") {
                 echo "<a href='../account.php'><i class='fas fa-user'></i></a>";
                 echo "<a href='../cart.php'><i class='fa-solid fa-cart-shopping'></i></i></a>";
-                echo "<a href='../adminpanel.php'><i class='fas fa-clipboard-list'></i></a>";
+                echo "<a href='../admin/adminpanel.php'><i class='fas fa-clipboard-list'></i></a>";
                 echo "<a href='../utils/logout.php'><i class='fa-solid fa-arrow-right-from-bracket'></i></a>";
             }
             ?>

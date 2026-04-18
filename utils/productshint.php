@@ -11,7 +11,7 @@ if ($hint !== "") {
     //ako nije prazan string pretrazujemo po bazi
     $sql = "
         SELECT product_id, name, price, img_url
-        FROM Product
+        FROM product
         WHERE name LIKE '%$hint%'
         ORDER BY date_created DESC
         LIMIT 10

@@ -52,7 +52,7 @@ function makeCheckout($konekcija) {
 
     foreach ($cart as $productId => $quantity) {
         // kupimo cijene iz baze
-        $sql = "SELECT price FROM Product WHERE product_id = $productId";
+        $sql = "SELECT price FROM product WHERE product_id = $productId";
         $result = $konekcija->query($sql);
         if ($result && $row = $result->fetch_assoc()) {
             $price = $row['price'];
@@ -67,7 +67,7 @@ function makeCheckout($konekcija) {
 
     $status = 'u obradi';
 
-    $stmt = $konekcija->prepare("INSERT INTO Orders (user_id, status, total, address, city, note) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $konekcija->prepare("INSERT INTO orders (user_id, status, total, address, city, note) VALUES (?, ?, ?, ?, ?, ?)");
         $stmt->bind_param('isdsss', $user_id, $status, $total, $address, $city, $note);
         if (!$stmt->execute()) {
             echo "X";
@@ -78,7 +78,7 @@ function makeCheckout($konekcija) {
     $stmt->close();
 
     //ubacujemo order iteme u bazu
-    $stmt_items = $konekcija->prepare("INSERT INTO Order_Items (order_id, product_id, quantity, unit_price) VALUES (?, ?, ?, ?)");
+    $stmt_items = $konekcija->prepare("INSERT INTO order_items (order_id, product_id, quantity, unit_price) VALUES (?, ?, ?, ?)");
 
     foreach ($cart as $product_id => $quantity) {
         if (isset($productPrices[$product_id])) {

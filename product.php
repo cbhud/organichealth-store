@@ -7,7 +7,7 @@ if (empty($_GET['id'])){
 require 'utils/connection.php';
 
 $id = $_GET['id'];
-$sql = "SELECT * FROM Product WHERE product_id = '$id'";
+$sql = "SELECT * FROM product WHERE product_id = '$id'";
 $result = $konekcija->query($sql);
 if ($result->num_rows < 1){
     header('Location: index.php');
@@ -24,23 +24,48 @@ $product = $result->fetch_assoc();
     <link rel="stylesheet" href="css/product.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/popup.css">
-    <link rel="icon" type="image/jpg" href="/web-shop/slike/logo.jpg">
+    <link rel="icon" type="image/jpg" href="slike/logo.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script>
         function redirectToEdit(productId){
-            window.location.href = "edit_product.php?id="+productId;
+            window.location.href = "admin/edit_product.php?id="+productId;
         }
 
-        function deleteProduct(productId){
+        function deleteProduct(productId) {
+            let overlay = document.createElement("div");
+            overlay.className = "cart-popup-overlay";
+            
+            let modal = document.createElement("div");
+            modal.className = "cart-popup-modal";
+            modal.innerHTML = `
+                <h3 style="margin-bottom:12px;color:#d9534f;">Potvrda brisanja</h3>
+                <p>Da li ste sigurni da želite da obrišete ovaj proizvod?</p>
+                <div class="cart-popup-actions" style="margin-top:20px;">
+                    <button class="btn" style="background:#d9534f;" id="confirm-delete">Obriši</button>
+                    <button class="btn" style="background:#ddd;color:#333;" id="cancel-delete">Otkaži</button>
+                </div>
+            `;
+            
+            overlay.appendChild(modal);
+            document.body.appendChild(overlay);
+            
+            document.getElementById("cancel-delete").onclick = () => overlay.remove();
+            
+            document.getElementById("confirm-delete").onclick = () => {
+                overlay.remove();
+                executeDeletion(productId);
+            };
+        }
+
+        function executeDeletion(productId) {
             $.ajax({
                 type: "POST",
                 url: "utils/deleteproduct.php",
                 data: {
                     productId: productId
                 },
-                success: function(data){
-                    alert(data);
+                success: function(data) {
                     window.location.href = "products.php";
                 }
             });
@@ -111,7 +136,7 @@ $product = $result->fetch_assoc();
     <header>
         <div class="container header-content">
             <a class="logo" href="index.php">
-                <img src="/web-shop/slike/logo.jpg" alt="Logo">
+                <img src="slike/logo.jpg" alt="Logo">
             </a>
             <nav class="main-nav">
                 <ul>
@@ -132,7 +157,7 @@ $product = $result->fetch_assoc();
                 }else if ($_SESSION["role"] == "admin") {
                     echo "<a href='account.php'><i class='fas fa-user'></i></a>";
                     echo "<a href='cart.php'><i class='fa-solid fa-cart-shopping'></i></a>";
-                    echo "<a href='adminpanel.php'><i class='fas fa-clipboard-list'></i></a>";
+                    echo "<a href='admin/adminpanel.php'><i class='fas fa-clipboard-list'></i></a>";
                     echo "<a href='utils/logout.php'><i class='fa-solid fa-arrow-right-from-bracket'></i></a>";
                 }
                 ?>

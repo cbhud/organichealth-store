@@ -40,7 +40,7 @@ function updateOrder($user_id) {
     $order_id = $_POST['order_id'];
 
     //provjera da li pripada korisniku narudzba ili je admin
-    $sql = "SELECT user_id, status FROM Orders WHERE order_id = '$order_id'";
+    $sql = "SELECT user_id, status FROM orders WHERE order_id = '$order_id'";
     $result = $konekcija->query($sql);
     if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
@@ -80,7 +80,7 @@ function updateOrder($user_id) {
             echo "X";
             exit;
         }
-        $stmt = $konekcija->prepare("UPDATE Orders SET address = ?, city = ?, note = ?, status = ? WHERE order_id = ?");
+        $stmt = $konekcija->prepare("UPDATE orders SET address = ?, city = ?, note = ?, status = ? WHERE order_id = ?");
         $stmt->bind_param("ssssi", $address, $city, $note, $status, $order_id);
     } else {
         //korisnik moze da mijenja narudzbu samo ako je status idalje u obradi
@@ -88,7 +88,7 @@ function updateOrder($user_id) {
             echo "X";
             exit;
         }
-        $stmt = $konekcija->prepare("UPDATE Orders SET address = ?, city = ?, note = ? WHERE order_id = ?");
+        $stmt = $konekcija->prepare("UPDATE orders SET address = ?, city = ?, note = ? WHERE order_id = ?");
         $stmt->bind_param("sssi", $address, $city, $note, $order_id);
     }
 
@@ -118,7 +118,7 @@ function removeOrderItem($user_id) {
     $order_item_id = $_POST['order_item_id'];
 
     //provjera da li pripada korisniku narudzba ili je admin
-    $sql = "SELECT user_id, status FROM Orders WHERE order_id = '$order_id'";
+    $sql = "SELECT user_id, status FROM orders WHERE order_id = '$order_id'";
     $result = $konekcija->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
@@ -139,7 +139,7 @@ function removeOrderItem($user_id) {
         exit;
     }
 
-    $stmt = $konekcija->prepare("DELETE FROM Order_Items WHERE order_item_id = ? AND order_id = ?");
+    $stmt = $konekcija->prepare("DELETE FROM order_items WHERE order_item_id = ? AND order_id = ?");
     $stmt->bind_param("ii", $order_item_id, $order_id);
     if (!$stmt->execute()) {
         $stmt->close();
@@ -148,14 +148,14 @@ function removeOrderItem($user_id) {
     }
     $stmt->close();
 
-    $stmt = $konekcija->prepare("SELECT SUM(quantity * unit_price) AS total FROM Order_Items WHERE order_id = ?");
+    $stmt = $konekcija->prepare("SELECT SUM(quantity * unit_price) AS total FROM order_items WHERE order_id = ?");
     $stmt->bind_param("i", $order_id);
     $stmt->execute();
     $stmt->bind_result($new_total);
     $stmt->fetch();
     $stmt->close();
 
-    $stmt = $konekcija->prepare("UPDATE Orders SET total = ? WHERE order_id = ?");
+    $stmt = $konekcija->prepare("UPDATE orders SET total = ? WHERE order_id = ?");
     $stmt->bind_param("di", $new_total, $order_id);
     $stmt->execute();
     $stmt->close();
@@ -173,7 +173,7 @@ function cancelOrder($user_id) {
     $order_id = intval($_POST['order_id']);
 
     //provjera da li pripada korisniku narudzba ili je admin
-    $sql = "SELECT user_id, status FROM Orders WHERE order_id = '$order_id'";
+    $sql = "SELECT user_id, status FROM orders WHERE order_id = '$order_id'";
     $result = $konekcija->query($sql);
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
@@ -194,7 +194,7 @@ function cancelOrder($user_id) {
         exit;
     }
 
-    $stmt = $konekcija->prepare("UPDATE Orders SET status='otkazano' WHERE order_id=?");
+    $stmt = $konekcija->prepare("UPDATE orders SET status='otkazano' WHERE order_id=?");
     $stmt->bind_param("i", $order_id);
     if (!$stmt->execute()) {
         $stmt->close();

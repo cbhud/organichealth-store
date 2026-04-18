@@ -62,3 +62,34 @@
 .status-msg.error {
     color: #d42c2c;
 }
+
+.custom-file-upload {
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+.custom-file-label {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px;
+    background: #f9f9f9;
+    border: 2px dashed #197b30;
+    border-radius: 8px;
+    color: #197b30 !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 5px !important;
+    margin-bottom: 0 !important;
+}
+
+.custom-file-label:hover {
+    background: #eef7f0;
+    border-color: #1f9240;
+}

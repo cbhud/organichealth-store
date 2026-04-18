@@ -1,8 +1,13 @@
-function showMsg(msg) {
-    let statusMsg = document.getElementById('status-msg');
+function showMsg(msg, isSuccess = false) {
+    let statusMsg = document.querySelector('.status-msg');
+    if (!statusMsg) return;
     statusMsg.textContent = msg;
-    statusMsg.classList.remove('success');
-    statusMsg.classList.add('error');
+    statusMsg.classList.remove('success', 'error');
+    if (isSuccess) {
+        statusMsg.classList.add('success');
+    } else {
+        statusMsg.classList.add('error');
+    }
 }
 
 function validateProductForm(product_id) {
@@ -55,6 +60,7 @@ function fetchData(product_id) {
     let description = document.getElementById('description').value;
     let image_url = document.getElementById('image_url').value;
     let ajax = 1;
+    let inRecommended = document.getElementById('inRecommended') && document.getElementById('inRecommended').checked ? '1' : '0';
 
     $.ajax({
         type: 'POST',
@@ -66,18 +72,19 @@ function fetchData(product_id) {
             stock: stock,
             description: description,
             image_url: image_url,
+            inRecommended: inRecommended,
             ajax: ajax
         },
         success: function(resp) {
             if (resp.trim() === 'OK') {
-                alert('Proizvod je uspešno izmenjen!');
-                window.location.href = 'adminpanel.php';
+                showMsg('Proizvod je uspešno izmenjen!', true);
+                setTimeout(() => window.location.href = '../product.php?id=' + product_id, 1000);
             } else {
-                showMsg(resp);
+                showMsg(resp, false);
             }
         },
         error: function() {
-            showMsg('Greška u komunikaciji sa serverom!');
+            showMsg('Greška u komunikaciji sa serverom!', false);
         }
     });
 }

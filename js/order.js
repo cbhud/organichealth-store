@@ -6,6 +6,13 @@ function getId() {
 
 const ORDER_ID = getId();
 
+function showStatus(msg, isSuccess = true) {
+    let orderMsg = document.getElementById("order-msg");
+    if (!orderMsg) return;
+    orderMsg.textContent = msg;
+    orderMsg.style.color = isSuccess ? "#197b30" : "#d9534f";
+}
+
 function validateAddress() {
     let address = document.getElementById("address").value.trim();
     let span = document.getElementById("addressErr");
@@ -106,14 +113,15 @@ function saveOrder() {
             },
             success: function(response) {
                 if (response === "OK") {
-                    alert("Narudžbina sačuvana");
+                    showStatus("Narudžbina uspešno sačuvana!");
+                    setTimeout(() => window.location.href = "admin/adminpanel.php", 1000);
                 } else {
-                    alert("Greška: " + response);
+                    showStatus("Greška: " + response, false);
                 }
             }
         });
     } else {
-        alert("Nisu ispravni svi podaci");
+        showStatus("Nisu ispravni svi podaci", false);
     }
 }
 
@@ -128,10 +136,10 @@ function cancelOrder() {
         },
         success: function(response) {
             if (response === "OK") {
-                alert("Narudžbina je otkazana");
-                location.reload();
+                showStatus("Narudžbina je uspešno otkazana!", true);
+                setTimeout(() => location.reload(), 1000);
             } else {
-                alert("Greška: " + response);
+                showStatus("Greška: " + response, false);
             }
         }
     });

@@ -16,8 +16,8 @@ if (empty($_GET['id']) || !is_numeric($_GET['id'])) {
 $order_id = $_GET['id'];
 
 $sql = "SELECT o.*, u.first_name, u.last_name, u.phone_number 
-        FROM Orders o 
-        LEFT JOIN Users u ON o.user_id = u.user_id 
+        FROM orders o 
+        LEFT JOIN users u ON o.user_id = u.user_id 
         WHERE o.order_id = $order_id";
 $order_result = $konekcija->query($sql);
 $order = $order_result->fetch_assoc();
@@ -36,9 +36,9 @@ if ($_SESSION['role'] != 'admin' && $order['user_id'] != $user_id) {
 }
 
 $sql = "
-    SELECT oi.*, p.name 
-    FROM Order_Items oi
-    JOIN Product p ON oi.product_id = p.product_id 
+    SELECT oi.*, p.name, p.img_url 
+    FROM order_items oi
+    JOIN product p ON oi.product_id = p.product_id 
     WHERE oi.order_id = $order_id
 ";
 $items_result = $konekcija->query($sql);
@@ -56,14 +56,14 @@ while ($item = $items_result->fetch_assoc()) {
     <link rel="stylesheet" href="css/order.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="/web-shop/js/order.js"></script>
+    <script src="js/order.js"></script>
 </head>
 <body>
 <header>
     <div class="container header-content">
         <div class="logo">
             <a href="index.php">
-                <img src="/web-shop/slike/logo.jpg" alt="">
+                <img src="slike/logo.jpg" alt="">
             </a>
         </div>
         <nav class="main-nav">
@@ -83,7 +83,7 @@ while ($item = $items_result->fetch_assoc()) {
             }else if ($_SESSION["role"] == "admin") {
                 echo "<a href='account.php'><i class='fas fa-user'></i></a>";
                 echo "<a href='cart.php'><i class='fa-solid fa-cart-shopping'></i></a>";
-                echo "<a href='adminpanel.php'><i class='fas fa-clipboard-list'></i></a>";
+                echo "<a href='admin/adminpanel.php'><i class='fas fa-clipboard-list'></i></a>";
                 echo "<a href='utils/logout.php'><i class='fa-solid fa-arrow-right-from-bracket'></i></a>";
             }
             ?>
@@ -94,10 +94,12 @@ while ($item = $items_result->fetch_assoc()) {
     <div class="order-detail-box">
         <?php
         echo '<h2>Detalji narudzbine #' . $order_id . '</h2>';
+        echo '<div class="order-msg" id="order-msg" style="font-weight: 600;"></div>';
 
+        echo '<div class="order-meta-info">';
         if ($_SESSION['role'] == 'admin') {
             echo '<div><strong>Status:</strong> ';
-            echo '<select id="order-status-admin">';
+            echo '<select id="order-status-admin" style="max-width: 200px; margin-left: 8px;">';
             switch ($order['status']) {
                 case 'u obradi':
                     echo '<option value="u obradi" selected>u obradi</option>';
@@ -135,6 +137,7 @@ while ($item = $items_result->fetch_assoc()) {
         echo '<div><strong>Grad:</strong> <span id="display-city">' . $order['city'] . '</span></div>';
         echo '<div><strong>Napomena:</strong> <span id="display-note">' . $order['note'] . '</span></div>';
         echo '<div><strong>Ukupno:</strong> <span id="order-total">' . $order['total'] . '</span> €</div>';
+        echo '</div>';
         echo '<div style="margin-top:12px"><strong>Stavke:</strong></div>';
         ?>
         <form class="order-form" method="post" autocomplete="off">
@@ -157,7 +160,7 @@ while ($item = $items_result->fetch_assoc()) {
                 for ($i = 0; $i < count($order_items); $i++) {
                     $item = $order_items[$i];
                     echo '<tr data-order-item-id="' . $item['order_item_id'] . '">';
-                    echo '<td>' . $item['name'] . '</td>';
+                    echo '<td><img src="' . $item['img_url'] . '" alt="' . $item['name'] . '" class="order-item-img">' . $item['name'] . '</td>';
                     echo '<td>' . $item['quantity'] . '</td>';
                     echo '<td>' . $item['unit_price'] . ' €</td>';
                     echo '<td>' . ($item['unit_price'] * $item['quantity']) . ' €</td>';

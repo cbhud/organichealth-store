@@ -11,7 +11,7 @@ function showCartPopup2() {
        alt="success" style="width:90px;display:block;margin:0 auto 16px auto;" />
   <p>Narudzbina uspjesno poslata!</p>
   <div class="cart-popup-actions">
-    <a href="/web-shop/index.php" class="btn">Nazad na pocetnu</a>
+    <a href="../index.php" class="btn">Nazad na pocetnu</a>
   </div>
 `;
 

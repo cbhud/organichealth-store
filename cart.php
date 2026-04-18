@@ -44,7 +44,7 @@ if (isset($_POST['update_id']) && isset($_POST['update_qty'])) {
     <title>Vaša korpa | Organic Health CG</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/cart.css">
-    <link rel="icon" type="image/jpg" href="/web-shop/slike/logo.jpg">
+    <link rel="icon" type="image/jpg" href="slike/logo.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script>
@@ -133,7 +133,7 @@ if (isset($_POST['update_id']) && isset($_POST['update_qty'])) {
     <div class="container header-content">
         <div class="logo">
             <a href="index.php">
-                <img src="/web-shop/slike/logo.jpg" alt="">
+                <img src="slike/logo.jpg" alt="">
             </a>
         </div>
         <nav class="main-nav">
@@ -157,7 +157,7 @@ if (isset($_POST['update_id']) && isset($_POST['update_qty'])) {
                 if ($_SESSION["role"] == "admin") {
                     echo "<a href='account.php'><i class='fas fa-user'></i></a>";
                     echo "<a href='cart.php'><i class='fa-solid fa-cart-shopping'></i></a>";
-                    echo "<a href='adminpanel.php'><i class='fas fa-clipboard-list'></i></a>";
+                    echo "<a href='admin/adminpanel.php'><i class='fas fa-clipboard-list'></i></a>";
                     echo "<a href='utils/logout.php'><i class='fa-solid fa-arrow-right-from-bracket'></i></a>";
                 }
             }
@@ -178,7 +178,7 @@ if (isset($_POST['update_id']) && isset($_POST['update_qty'])) {
         } else {
             echo '<div class="cart-items">';
             foreach ($cart as $pid => $qty) {
-                $query = "SELECT product_id, name, price, img_url FROM Product WHERE product_id = $pid LIMIT 1";
+                $query = "SELECT product_id, name, price, img_url FROM product WHERE product_id = $pid LIMIT 1";
                 $result = $konekcija->query($query);
                 if ($result && $row = $result->fetch_assoc()) {
                     $item_total = $row['price'] * $qty;
