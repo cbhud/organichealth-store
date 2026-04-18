@@ -1,59 +1,78 @@
-[Live Demo](https://cbhud.infinityfree.me)
 # Organic Health Store
 
-University final exam project built using PHP  
+[Live Demo](https://cbhud.infinityfree.me)
 
-This PHP-based e-commerce platform for products incorporates a range of modern web development features, including:
+Organic Health Store is a PHP-based e-commerce web application built for a small local store. It allows customers to browse products, manage a cart, place orders, and lets admins manage products, categories, and store orders.
 
-- **User Registration & Login:**  
-  - Secure password handling using industry-standard hashing.
-  - Security measures such as input validation and session management with roles.
+## Features
 
-- **Product & Category Management:**  
-  - Admins can add, edit, and delete products and categories through dedicated interfaces.
-  - Product and category data is stored and managed in a relational database (see included DB diagram).
-  - Product listing and detail pages dynamically fetch product data from the database.
+### Customer
+- Browse products by category
+- View product details
+- Search and filter products
+- Add items to cart
+- Update cart quantities without reloading the page
+- Complete checkout and place orders
+- View order history
 
-- **Admin Panel:**  
-  - Centralized dashboard for administrators to manage the store, including products, categories, and orders.
-  - Backend logic separates admin functionality from regular user experience.
+### Admin
+- Add, edit, and delete products
+- Upload product images
+- Manage categories
+- View and update orders
+- Access a dedicated admin panel
+- Export reports as CSV files
 
-- **Shopping Cart & Checkout:**  
-  - Users can add products to a cart, update quantities, and remove items, with actions handled via AJAX for responsiveness.
-  - Checkout process captures order and shipping details, and processes the order into the database.
+## Tech Stack
 
-- **Order Processing & Reports:**  
-  - System tracks orders per user, with order history accessible in user accounts and the admin panel.
-  - Admins can generate reports (e.g., sales, inventory, user activity) for the store's performance and management.
+- **Backend:** PHP
+- **Database:** MySQL
+- **Frontend:** HTML, CSS, JavaScript, AJAX
 
-- **Security & Best Practices:**  
-  - User inputs are sanitized to prevent SQL injections.
-  - Role-based access control ensures only admins can access sensitive features.
+## Highlights
 
-- **Database Design & Implementation:**  
-  - Well-structured relational database, as visualized in the provided ERD.
-  - Database includes tables for users, products, categories, orders, order items, and possibly more (addresses, reports, etc.).
-  - Database dump files (`webshop_dump/`) assist with development, backup, and deployment.
+- Role-based admin access
+- Secure password hashing and session management
+- Input validation and sanitized queries
+- AJAX-powered cart updates
+- Relational database design for store data
 
-- **Frontend & User Experience:**  
-  - Responsive design using custom CSS/JS for interactivity.
-  - AJAX enables smooth, real-time updates (e.g., cart changes, order updates, etc.).
+## Live Demo
 
-- **Utility Scripts:**  
-  - Handles AJAX requests for adding products to the user's cart and updating cart contents.
-  - Implements server-side filtering logic for product searches and category browsing.
-  - Provides live interactive search box suggestions on the products listing page.
-  - Enables secure deletion of products by authorized admins.
-  - Allows admins to update order status or details.
-  - Generates downloadable CSV reports (sales, inventory, etc.) for admin review.
-  - Centralizes secure database connections and session management.
+[https://cbhud.infinityfree.me](https://cbhud.infinityfree.me)
 
----
+## Screenshots
 
+_Add screenshots here for:_
+[- Home page](https://imgur.com/7luLqyG)
+- Product listing
+- Product details
+- Cart / checkout
+- Admin panel
 
-Organic Health Store demonstrates a comprehensive approach to building a modern, secure, and user-friendly e-commerce application with PHP. 
-By combining robust backend architecture, responsive frontend design, and carefully structured utility scripts, 
-the project delivers a complete online store experience suitable for real-world deployment or further development. 
-The modular codebase and best practices in security and maintainability ensure the platform is both scalable and adaptable for future needs.
+## Running Locally
 
+1. Clone the repository
+2. Import the database dump into MySQL
+3. Configure your database connection
+4. Run the project in a local PHP server environment such as XAMPP or Laragon
 
+## Project Goal
+
+This project was built to simulate a real online store and practice full-stack web development concepts such as authentication, CRUD operations, cart logic, checkout flow, admin tools, and database design.
+
+## Future Improvements
+
+- Expanded reporting dashboard
+- Better page design and UX polish
+- Additional analytics features
+
+## Repository Contents
+
+- PHP source code
+- Database dump files
+- ERD / database diagram
+
+## Summary
+
+Organic Health Store is a full-stack webshop project that demonstrates how to build a secure and functional e-commerce system with PHP and MySQL.
