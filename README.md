@@ -44,12 +44,12 @@ Organic Health Store is a PHP-based e-commerce web application built for a small
 ## Screenshots
 
 _Add screenshots here for:_
-[- Home page](https://i.imgur.com/7luLqyG.png)
-![Screenshot](https://i.imgur.com/7luLqyG.png)
-- Product listing
-- Product details
-- Cart / checkout
-- Admin panel
+[!Home page](https://i.imgur.com/7luLqyG.png)
+[!Product listing](https://i.imgur.com/OejKDrv.png)
+[!Product details](https://i.imgur.com/AG9jURI.png)
+[!Cart](https://i.imgur.com/q2KbvzQ.png)
+[!Checkout](https://i.imgur.com/mAWZ8FJ.png)
+[!Admin panel](https://i.imgur.com/3y8yqiV.png)
 
 ## Running Locally
 
@@ -65,8 +65,7 @@ This project was built to simulate a real online store and practice full-stack w
 ## Future Improvements
 
 - Expanded reporting dashboard
-- Better page design and UX polish
-- Additional analytics features
+- Additional analytics features (maybe some AI analytics)
 
 ## Repository Contents
 
