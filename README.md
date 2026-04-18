@@ -1,4 +1,4 @@
-[Live Demo](https://organichealth.zya.me/index.php)
+[Live Demo](https://cbhud.infinityfree.me)
 # Organic Health Store
 
 University final exam project built using PHP  
