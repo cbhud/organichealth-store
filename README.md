@@ -42,17 +42,12 @@ Organic Health Store is a PHP-based e-commerce web application built for a small
 [https://cbhud.infinityfree.me](https://cbhud.infinityfree.me)
 
 ## Screenshots
-[!Home page](https://i.imgur.com/7luLqyG.png)
-
-[!Product listing](https://i.imgur.com/OejKDrv.png)
-
-[!Product details](https://i.imgur.com/AG9jURI.png)
-
-[!Cart](https://i.imgur.com/q2KbvzQ.png)
-
-[!Checkout](https://i.imgur.com/mAWZ8FJ.png)
-
-[!Admin panel](https://i.imgur.com/3y8yqiV.png)
+![Home page](https://i.imgur.com/7luLqyG.png)
+![Product listing](https://i.imgur.com/OejKDrv.png)
+![Product details](https://i.imgur.com/AG9jURI.png)
+![Cart](https://i.imgur.com/q2KbvzQ.png)
+![Checkout](https://i.imgur.com/mAWZ8FJ.png)
+![Admin panel](https://i.imgur.com/3y8yqiV.png)
 
 ## Running Locally
 
