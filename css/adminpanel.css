@@ -6,80 +6,79 @@
     display: inline-block;
     margin: 0 12px 0 0;
     padding: 8px 20px;
-    border-radius: 7px;
-    background: #f3f3f3;
-    color: #26712f;
+    border-radius: 9999px;
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--ink);
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.08em;
-    transition: background .17s, color .17s;
+    font-size: 1.05em;
+    transition: all .2s;
 }
 .admin-nav a.active, .admin-nav a:hover {
-    background: #26712f;
-    color: #fff;
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--studio-white);
 }
 
 .admin-orders {
-    background: #fdfdfb;
-    border-radius: 14px;
-    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.07), 0 1.5px 5px 0 rgba(0,0,0,0.05);
+    background: var(--studio-white);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(17,17,17,0.04), 0 8px 24px rgba(17,17,17,0.06);
+    border: 1px solid var(--card-border);
     max-width: 1100px;
     margin: 0 auto 50px auto;
     padding: 34px 20px 36px 20px;
 }
 .admin-orders h2 {
     margin-bottom: 22px;
-    font-size: 1.3em;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    color: #3b572a;
+    font-size: 1.4rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--ink);
 }
 .admin-orders table {
     width: 100%;
     border-collapse: collapse;
-    background: #fff;
-    border-radius: 10px;
+    background: var(--studio-white);
+    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 1px 3px 0 rgba(60,60,60,0.08);
+    border: 1px solid var(--card-border);
 }
 .admin-orders thead tr {
-    background: #e3f0df;
-    color: #2d3e1f;
+    background: var(--mist);
+    color: var(--slate);
 }
 .admin-orders th, .admin-orders td {
     padding: 13px 11px;
     text-align: center;
-    font-size: 1.07em;
+    font-size: 1.05em;
+    border-bottom: 1px solid var(--card-border);
 }
 .admin-orders th {
     font-weight: 600;
-    letter-spacing: 0.02em;
-    border-bottom: 2px solid #e6ede2;
-}
-.admin-orders tbody tr {
-    border-bottom: 1px solid #f2f2f2;
-    transition: background 0.15s;
+    border-bottom: 2px solid var(--card-border);
 }
 .admin-orders tbody tr:hover {
-    background: #f0f7ed;
+    background: var(--sage-wash);
 }
 .admin-orders td {
-    font-size: 1em;
-    color: #2c2c2c;
+    color: var(--ink);
 }
 .admin-orders .btn-details {
-    background: #3b572a;
-    color: #fff;
-    padding: 7px 13px;
-    border-radius: 7px;
+    background: var(--ink);
+    color: var(--studio-white);
+    padding: 8px 16px;
+    border-radius: 9999px;
     text-decoration: none;
-    transition: background 0.17s, color 0.17s;
-    font-size: 1.08em;
+    transition: all 0.2s;
+    font-size: 0.95em;
     display: inline-block;
+    border: none;
 }
 .admin-orders .btn-details:hover {
-    background: #578f41;
-    color: #fff;
+    background: var(--slate);
+    box-shadow: 0 0 0 2px var(--neon-green);
 }
 
 @media (max-width: 900px) {
@@ -113,7 +112,7 @@
         font-size: 0.99em;
         font-weight: 600;
         margin-bottom: 4px;
-        color: #3b572a;
+        color: var(--slate);
         letter-spacing: 0.01em;
     }
 }

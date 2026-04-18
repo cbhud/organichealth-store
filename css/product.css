@@ -10,9 +10,10 @@
     flex: 1 1 320px;
     min-width: 260px;
     max-width: 430px;
-    background: var(--white);
-    border-radius: 16px;
-    box-shadow: 0 4px 18px rgba(65,93,67,0.09);
+    background: var(--studio-white);
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(17,17,17,0.04), 0 8px 24px rgba(17,17,17,0.06);
+    border: 1px solid var(--card-border);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,42 +24,46 @@
     max-width: 320px;
     max-height: 360px;
     object-fit: contain;
-    border-radius: 12px;
+    border-radius: 8px;
 }
 .product-view-details {
     flex: 2 1 430px;
     min-width: 280px;
     max-width: 600px;
-    background: var(--white);
-    border-radius: 16px;
-    box-shadow: 0 4px 18px rgba(65,93,67,0.09);
+    background: var(--studio-white);
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 2px 4px rgba(17,17,17,0.04), 0 8px 24px rgba(17,17,17,0.06);
     padding: 36px 32px 28px 32px;
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 .product-view-details h1 {
-    font-size: 2rem;
-    color: var(--primary);
+    font-size: 2.2rem;
+    color: var(--ink);
     margin-bottom: 8px;
-    font-weight: 700;
+    font-weight: 500;
+    letter-spacing: -0.02em;
 }
 .product-view-description {
     font-size: 1.1rem;
-    color: var(--text-light);
+    color: var(--muted);
     line-height: 1.65;
     margin-bottom: 10px;
+    font-weight: 400;
 }
 .product-view-price-row {
     margin-bottom: 12px;
 }
 .product-view-price {
     font-size: 1.4rem;
-    color: var(--primary);
-    font-weight: 700;
-    background: var(--secondary);
+    color: var(--ink);
+    font-weight: 600;
+    background: var(--mist);
+    border: 1px solid var(--card-border);
     padding: 6px 22px;
-    border-radius: 24px;
+    border-radius: 9999px;
 }
 .product-view-buy-form {
     display: flex;
@@ -66,9 +71,9 @@
     gap: 22px;
 }
 .product-view-quantity-label {
-    font-weight: 600;
-    color: var(--dark);
-    font-size: 1.08rem;
+    font-weight: 500;
+    color: var(--slate);
+    font-size: 1.05rem;
     margin-bottom: 6px;
 }
 .product-view-quantity {
@@ -81,19 +86,19 @@
     width: 50px;
     font-size: 1.13rem;
     text-align: center;
-    border: 1px solid var(--secondary);
+    border: 1px solid var(--card-border);
     border-radius: 6px;
     padding: 7px;
-    background: var(--secondary);
-    color: var(--text-dark);
+    background: var(--mist);
+    color: var(--ink);
     -webkit-appearance: none;
     -moz-appearance: textfield;
     appearance: textfield;
 }
 .quantity-btn {
-    background: var(--primary);
-    color: var(--white);
-    border: none;
+    background: var(--mist);
+    border: 1px solid var(--card-border);
+    color: var(--ink);
     border-radius: 6px;
     width: 36px;
     height: 36px;
@@ -105,38 +110,43 @@
     justify-content: center;
 }
 .quantity-btn:hover {
-    background: var(--accent);
+    background: var(--sage-wash);
+    border-color: var(--neon-green);
 }
 .product-view-actions {
     display: flex;
-    gap: 22px;
+    flex-wrap: wrap;
+    gap: 16px;
     margin-top: 14px;
 }
 .buy-now-btn, .add-to-cart-btn {
-    background: var(--accent);
-    color: var(--white);
     border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 13px 32px;
+    border-radius: 9999px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 14px 32px;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(65,93,67,0.06);
-    transition: background 0.2s, transform 0.2s;
+    transition: all 0.2s ease;
     outline: none;
 }
-.buy-now-btn:hover {
-    background: var(--primary);
-    color: var(--white);
-    transform: scale(1.04);
+
+.buy-now-btn {
+    background: var(--ink);
+    color: var(--studio-white);
 }
+.buy-now-btn:hover {
+    background: var(--slate);
+    box-shadow: 0 0 0 2px var(--neon-green);
+}
+
 .add-to-cart-btn {
-    background: var(--primary);
+    background: var(--sage-wash);
+    color: var(--ink);
+    border: 1px solid var(--card-border);
 }
 .add-to-cart-btn:hover {
-    background: var(--accent);
-    color: var(--white);
-    transform: scale(1.04);
+    background: var(--mist);
+    border-color: var(--neon-green);
 }
 
 .add-to-cart i {
@@ -173,39 +183,35 @@
 }
 
 .edit-btn {
-    background: linear-gradient(90deg, #ffb347 0%, #ffcc33 100%);
-    color: #7a4300;
-    border: none;
-    border-radius: 8px;
+    background: var(--sage-wash);
+    color: var(--ink);
+    border: 1px solid var(--card-border);
+    border-radius: 9999px;
     font-size: 1.1rem;
-    font-weight: 600;
-    padding: 13px 32px;
+    font-weight: 500;
+    padding: 12px 24px;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(255, 193, 7, 0.10);
-    transition: background 0.2s, transform 0.2s;
+    transition: all 0.2s ease;
     outline: none;
 }
 .edit-btn:hover {
-    background: linear-gradient(90deg, #ff9800 0%, #ffe066 100%);
-    color: #a35400;
-    transform: scale(1.04);
+    background: var(--mist);
+    border-color: var(--neon-green);
 }
 
 .delete-btn {
-    background: linear-gradient(90deg, #ff4b2b 0%, #ff416c 100%);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
+    background: #fff;
+    color: #e74c3c;
+    border: 1px solid #f5c6cb;
+    border-radius: 9999px;
     font-size: 1.1rem;
-    font-weight: 600;
-    padding: 13px 32px;
+    font-weight: 500;
+    padding: 12px 24px;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(255, 65, 108, 0.10);
-    transition: background 0.2s, transform 0.2s;
+    transition: all 0.2s ease;
     outline: none;
 }
 .delete-btn:hover {
-    background: linear-gradient(90deg, #ff1a1a 0%, #ff4b2b 100%);
-    color: #fff;
-    transform: scale(1.04);
+    background: #f8dbdf;
+    border-color: #e74c3c;
 }

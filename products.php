@@ -15,6 +15,7 @@ $result2 = $konekcija->query($sql2);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proizvodi | Organic Health CG</title>
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/products.css">
     <link rel="stylesheet" href="css/popup.css">
     <link rel="icon" type="image/jpg" href="slike/logo.jpg">

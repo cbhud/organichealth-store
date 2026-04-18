@@ -1,265 +1,84 @@
-:root {
-    --primary: #7AC29A;
-    --secondary: #F6F7EB;
-    --accent: #266a37;
-    --dark: #415D43;
-    --light-bg: #FFFBE6;
-    --white: #fff;
-    --text-dark: #222;
-    --text-light: #415D43;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: var(--light-bg);
-    color: var(--text-dark);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-a {
-    color: inherit;
-    text-decoration: none;
-}
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-header {
-    background: var(--primary);
-    color: var(--white);
-    padding: 18px 0;
-    box-shadow: 0 2px 8px rgba(65,93,67,0.06);
-}
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.logo a {
-    display: flex;
-    align-items: center;
-    height: 100%;
-}
-
-.logo img {
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    display: block;
-}
-.brand-title {
-    margin-left: 12px;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: 1px;
-}
-
-.main-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 24px;
-}
-.main-nav a {
-    color: var(--secondary);
-    font-weight: 500;
-    transition: color 0.2s;
-    padding: 4px 10px;
-    border-radius: 6px;
-}
-.main-nav a:hover {
-    background: var(--accent);
-    color: var(--white);
-}
-.user-actions {
-    font-size: 1rem;
-}
-.user-actions a {
-    color: var(--white);
-    margin-left: 10px;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-.user-actions a:hover {
-    color: var(--accent);
-}
-main {
-    flex: 1 0 auto;
-    padding: 36px 0;
-}
-
-/* Auth page styles */
+/* Auth page styles (Global container spacing is managed by styles.css) */
 .auth-container {
-    max-width: 410px;
-    margin: 50px auto 0 auto;
-    background: var(--white);
-    border-radius: 16px;
-    box-shadow: 0 4px 18px rgba(65,93,67,0.10);
-    padding: 36px 28px 28px 28px;
+    max-width: 440px;
+    margin: 50px auto 30px auto;
+    background: var(--studio-white);
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(17,17,17,0.06);
+    border: 1px solid var(--card-border);
+    padding: 40px 32px 32px 32px;
 }
 .auth-form {
     display: flex;
     flex-direction: column;
-    gap: 13px;
+    gap: 16px;
     width: 100%;
 }
 .auth-form h2 {
     text-align: center;
-    color: var(--primary);
-    margin-bottom: 7px;
-    font-size: 1.36rem;
-    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
 }
 .auth-form label {
     font-weight: 500;
-    color: var(--dark);
-    margin-bottom: 4px;
+    color: var(--slate);
+    margin-bottom: 2px;
+    font-size: 0.95rem;
 }
 .auth-form input {
-    border: 1px solid var(--secondary);
-    border-radius: 6px;
-    padding: 9px 11px;
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 12px 14px;
     font-size: 1rem;
-    background: var(--secondary);
-    color: var(--text-dark);
-    transition: border 0.2s;
+    background: var(--studio-white);
+    color: var(--ink);
+    transition: all 0.2s ease;
 }
 .auth-form input:focus {
-    border: 1.5px solid var(--primary);
+    border-color: var(--neon-green);
+    box-shadow: 0 0 0 3px rgba(54, 244, 164, 0.2);
     outline: none;
 }
 .auth-btn {
-    margin-top: 8px;
-    background: var(--primary);
-    color: var(--white);
+    margin-top: 12px;
+    background: var(--ink);
+    color: var(--studio-white);
     border: none;
-    border-radius: 6px;
-    padding: 10px 0;
-    font-size: 1.08rem;
-    font-weight: 600;
+    border-radius: 9999px;
+    padding: 14px 0;
+    font-size: 1.1rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-    box-shadow: 0 2px 6px rgba(65,93,67,0.07);
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(17,17,17,0.04);
 }
 .auth-btn:hover {
-    background: var(--accent);
-    color: var(--white);
+    background: var(--slate);
+    box-shadow: 0 0 0 2px var(--neon-green);
 }
 .auth-switch {
     text-align: center;
     font-size: 0.98rem;
+    color: var(--muted);
+    margin-top: 8px;
 }
 .auth-switch a {
-    color: var(--primary);
+    color: var(--ink);
     text-decoration: underline;
     font-weight: 500;
     cursor: pointer;
+    transition: color 0.2s;
 }
 .auth-switch a:hover {
-    color: var(--accent);
+    color: var(--slate);
 }
 
-footer {
-    background: var(--dark);
-    color: var(--secondary);
-    padding: 22px 0 16px 0;
-    font-size: 1rem;
-    flex-shrink: 0;
-}
-.footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-.footer-left {
-    text-align: left;
-    flex: 1 1 0;
-    min-width: 120px;
-}
-.footer-right {
-    text-align: right;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 20px;
-    flex: 1 1 0;
-    min-width: 220px;
-}
-.footer-location {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1rem;
-}
-.footer-location i {
-    color: var(--primary);
-    font-size: 1.3rem;
-}
-.footer-social {
-    display: flex;
-    gap: 16px;
-    margin-left: 18px;
-}
-.footer-social a {
-    color: var(--primary);
-    font-size: 1.6rem;
-    transition: color 0.2s, transform 0.2s;
-}
-.footer-social a:hover {
-    color: var(--accent);
-    transform: scale(1.13);
-}
-
-@media (max-width: 800px) {
-    .header-content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 14px;
-    }
-    .main-nav ul {
-        gap: 16px;
-    }
-    .user-actions {
-        align-self: flex-end;
-    }
-}
 @media (max-width: 700px) {
-    .footer-content {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-    .footer-left, .footer-right {
-        text-align: center;
-        justify-content: center;
-    }
-    .footer-right {
-        flex-direction: column;
-        gap: 10px;
-    }
     .auth-container {
-        padding: 22px 4vw 18px 4vw;
-    }
-}
-@media (max-width: 500px) {
-    .container {
-        width: 98%;
-    }
-    header, footer {
-        padding-left: 4px;
-        padding-right: 4px;
+        padding: 32px 24px;
+        margin: 32px auto;
     }
 }
